@@ -5,6 +5,8 @@ description: Turn a fresh clone of this boilerplate into a new client/site proje
 
 # New project: clone → rename → ship
 
+The step-by-step human guide (CMS dashboards, tokens, CORS, Vercel, DNS, launch checklist) is README.md sections 1–9. Keep it and this skill in sync.
+
 1. **Rename** — `npm run init` (asks project name, site name, production URL; updates package.json, demo site name, creates `.env.local`). Re-init git history if the clone kept the boilerplate's: `rm -rf .git && git init`.
 2. **Run it** — `npm install && npm run dev` → demo content at http://localhost:3000.
 3. **Choose the CMS** (`cms-adapters` skill). Sanity: `npx sanity@latest init --env .env.local`, add tokens + CORS, `npm run sanity:seed`, open `/studio`.

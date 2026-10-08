@@ -20,7 +20,7 @@ export default function StudioPage() {
         <h1>Sanity is not configured</h1>
         <p>
           Run <code>npx sanity@latest init --env .env.local</code> to create or link a project, then
-          restart <code>npm run dev</code>. See GETTING-STARTED.md.
+          restart <code>npm run dev</code>. See “Set up the CMS” in README.md.
         </p>
       </main>
     )
