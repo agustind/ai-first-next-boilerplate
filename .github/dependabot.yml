@@ -8,6 +8,16 @@ updates:
     groups:
       minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # Majors that must move in lockstep with the framework, not on their own:
+      # Next.js type-checks with TypeScript 5; next-sanity bundles @portabletext/react 7;
+      # @types/node follows the Node major in .nvmrc.
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
+      - dependency-name: '@portabletext/react'
+        update-types: [version-update:semver-major]
+      - dependency-name: '@types/node'
+        update-types: [version-update:semver-major]
 
   - package-ecosystem: github-actions
     directory: /
