@@ -1,0 +1,18 @@
+# Git hooks. Installed by `npm install` (prepare script).
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: '*.{js,mjs,ts,tsx,json,jsonc,css}'
+      run: npx biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+    typecheck:
+      glob: '*.{ts,tsx}'
+      run: npx tsc --noEmit
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}
+    no-ai-attribution:
+      run: node scripts/git/no-ai-attribution.mjs {1}

@@ -1,0 +1,23 @@
+# Local Directus for development: `npm run directus:up`, then `npm run directus:bootstrap`.
+# Not for production — use managed Directus Cloud or your own hardened deployment.
+services:
+  directus:
+    image: directus/directus:12.4.1
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./data/database:/directus/database
+      - ./data/uploads:/directus/uploads
+    environment:
+      # Replace KEY/SECRET with random values for anything shared.
+      KEY: "local-dev-key-change-me"
+      SECRET: "local-dev-secret-change-me"
+      PUBLIC_URL: "http://localhost:8055"
+      DB_CLIENT: "sqlite3"
+      DB_FILENAME: "/directus/database/data.db"
+      ADMIN_EMAIL: "${DIRECTUS_ADMIN_EMAIL:-admin@example.com}"
+      ADMIN_PASSWORD: "${DIRECTUS_ADMIN_PASSWORD:-admin-password}"
+      # The Next.js dev server loads images straight from /assets.
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "http://localhost:3000"
+      WEBSOCKETS_ENABLED: "false"

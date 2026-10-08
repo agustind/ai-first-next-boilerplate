@@ -1,0 +1,15 @@
+import { defineSection } from '../../define'
+import { {{sectionType name}}ToMarkdown } from './markdown'
+import { {{sectionType name}}Model } from './model'
+import { {{sectionType name}}Sample } from './sample'
+import { {{componentName name}} } from './section'
+
+export const {{sectionType name}} = defineSection({
+  type: '{{sectionType name}}',
+  title: '{{sectionTitle name}}',
+  description: 'TODO: one line telling editors (and agents) when to use this section.',
+  model: {{sectionType name}}Model,
+  component: {{componentName name}},
+  sample: {{sectionType name}}Sample,
+  toMarkdown: {{sectionType name}}ToMarkdown,
+})

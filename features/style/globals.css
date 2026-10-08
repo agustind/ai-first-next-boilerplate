@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Scan sources outside app/ */
+@source "../../components";
+@source "../../features";
+
+/*
+ * Design tokens. Change the brand here; components only use these names.
+ * Light/dark follow the OS. `.tone-inverted` flips a section.
+ */
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-bg: oklch(99% 0.003 260);
+  --color-fg: oklch(20% 0.02 260);
+  --color-muted: oklch(96% 0.006 260);
+  --color-muted-fg: oklch(48% 0.02 260);
+  --color-border: oklch(91% 0.008 260);
+  --color-accent: oklch(55% 0.2 265);
+  --color-accent-fg: oklch(99% 0 0);
+  --color-danger: oklch(55% 0.2 25);
+  --color-success: oklch(55% 0.15 150);
+
+  --radius-card: 1rem;
+  --container-content: 72rem;
+  --container-prose: 44rem;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: oklch(17% 0.015 260);
+    --color-fg: oklch(95% 0.005 260);
+    --color-muted: oklch(22% 0.015 260);
+    --color-muted-fg: oklch(70% 0.015 260);
+    --color-border: oklch(30% 0.015 260);
+    --color-accent: oklch(70% 0.16 265);
+    --color-accent-fg: oklch(15% 0.02 265);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+  ::selection {
+    @apply bg-accent text-accent-fg;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .tone-muted {
+    @apply bg-muted;
+  }
+  .tone-inverted {
+    --color-bg: oklch(20% 0.02 260);
+    --color-fg: oklch(97% 0.005 260);
+    --color-muted: oklch(26% 0.02 260);
+    --color-muted-fg: oklch(75% 0.015 260);
+    --color-border: oklch(34% 0.02 260);
+    @apply bg-bg text-fg;
+  }
+}
+
+/* Route transitions (React <ViewTransition>). Disabled for reduced motion. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: var(--ease-out-quart);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    /* biome-ignore lint/complexity/noImportantStyles: must beat per-transition animations */
+    animation: none !important;
+  }
+}

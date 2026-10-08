@@ -1,0 +1,9 @@
+import type { z } from 'zod'
+import type { {{sectionType name}}Model } from './model'
+
+export const {{sectionType name}}Sample = {
+  type: '{{sectionType name}}',
+  key: 'sample-{{sectionFolder name}}',
+  heading: '{{sectionTitle name}} heading',
+  text: 'Realistic sample copy for the {{sectionTitle name}} section. Used by demo content, /section-preview and tests.',
+} satisfies z.input<typeof {{sectionType name}}Model>

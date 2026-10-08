@@ -1,0 +1,10 @@
+import { defineDirectusSection } from '@/features/cms/directus/spec'
+
+export const {{sectionType name}}Directus = defineDirectusSection({
+  type: '{{sectionType name}}',
+  collection: '{{directusCollection name}}',
+  fields: [
+    { field: 'heading', kind: 'string', required: true },
+    { field: 'text', kind: 'text' },
+  ],
+})

@@ -1,0 +1,13 @@
+import { Container } from '@/components/container'
+import { headingTag, type SectionProps } from '../../define'
+import type { {{componentName name}}Model } from './model'
+
+export function {{componentName name}}({ section, index }: SectionProps<{{componentName name}}Model>) {
+  const Heading = headingTag(index)
+  return (
+    <Container>
+      <Heading className="font-semibold text-3xl tracking-tight sm:text-4xl">{section.heading}</Heading>
+      {section.text ? <p className="mt-4 max-w-2xl text-lg text-muted-fg">{section.text}</p> : null}
+    </Container>
+  )
+}

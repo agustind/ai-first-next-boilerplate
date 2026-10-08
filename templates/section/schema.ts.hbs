@@ -1,0 +1,25 @@
+import { BlockContentIcon } from '@sanity/icons/BlockContent'
+import { defineField, defineType } from 'sanity'
+import { sectionGroups, sectionSettingsFields } from '@/sanity/schemas/fields'
+
+export const {{sectionType name}}Schema = defineType({
+  name: '{{sectionType name}}',
+  title: '{{sectionTitle name}}',
+  type: 'object',
+  icon: BlockContentIcon,
+  groups: sectionGroups,
+  fields: [
+    defineField({
+      name: 'heading',
+      type: 'string',
+      group: 'content',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({ name: 'text', type: 'text', rows: 3, group: 'content' }),
+    ...sectionSettingsFields,
+  ],
+  preview: {
+    select: { title: 'heading' },
+    prepare: ({ title }) => ({ title, subtitle: '{{sectionTitle name}}' }),
+  },
+})

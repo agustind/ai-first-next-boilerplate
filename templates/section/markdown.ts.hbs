@@ -1,0 +1,5 @@
+import type { {{componentName name}}Model } from './model'
+
+export function {{sectionType name}}ToMarkdown(section: {{componentName name}}Model) {
+  return [`## ${section.heading}`, section.text ?? ''].filter(Boolean).join('\n\n')
+}

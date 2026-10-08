@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "site-check": {
+      "command": "npx",
+      "args": ["tsx", "scripts/mcp/stdio.ts"]
+    },
+    "next-devtools": {
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "sanity": {
+      "type": "http",
+      "url": "https://mcp.sanity.io"
+    }
+  }
+}
