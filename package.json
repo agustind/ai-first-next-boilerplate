@@ -29,7 +29,7 @@
   "dependencies": {
     "@directus/sdk": "^27.0.0",
     "@modelcontextprotocol/server": "^2.3.1",
-    "@portabletext/react": "^7.0.1",
+    "@portabletext/react": "^8.0.1",
     "@sanity/client": "^8.9.0",
     "@sanity/icons": "^5.2.3",
     "@sanity/vision": "^6.18.0",
