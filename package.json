@@ -44,7 +44,7 @@
     "styled-components": "^6.5.3",
     "tailwind-merge": "^3.7.0",
     "turndown": "^7.2.4",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
@@ -52,12 +52,12 @@
     "@commitlint/config-conventional": "^21.2.3",
     "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^24.19.1",
+    "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/turndown": "^5.0.6",
     "babel-plugin-react-compiler": "^1.0.0",
-    "knip": "^6.40.0",
+    "knip": "^6.41.0",
     "lefthook": "^2.2.0",
     "node-html-parser": "^9.0.4",
     "plop": "^4.0.5",
